@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "com.senati.apptareas.app-merged_res-32:/layout_activity_nueva_tarea.xml.flat",
+        "source": "com.senati.apptareas.app-main-34:/layout/activity_nueva_tarea.xml"
+    },
+    {
+        "merged": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-merged_res-32:\\menu_menu_drawer.xml.flat",
+        "source": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-main-34:\\menu\\menu_drawer.xml"
+    },
+    {
+        "merged": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-merged_res-32:\\drawable_bg_login_input.xml.flat",
+        "source": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-main-34:\\drawable\\bg_login_input.xml"
+    },
+    {
+        "merged": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-merged_res-32:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-main-34:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-merged_res-32:\\drawable_bg_avatar.xml.flat",
+        "source": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-main-34:\\drawable\\bg_avatar.xml"
+    },
+    {
+        "merged": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-merged_res-32:\\drawable_bg_login_card.xml.flat",
+        "source": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-main-34:\\drawable\\bg_login_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-merged_res-32:\\drawable_bg_boton_verde.xml.flat",
+        "source": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-main-34:\\drawable\\bg_boton_verde.xml"
+    },
+    {
+        "merged": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-merged_res-32:\\drawable_bg_login_avatar.xml.flat",
+        "source": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-main-34:\\drawable\\bg_login_avatar.xml"
+    },
+    {
+        "merged": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-merged_res-32:\\drawable_bg_card.xml.flat",
+        "source": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-main-34:\\drawable\\bg_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-merged_res-32:\\layout_activity_nueva_tarea.xml.flat",
+        "source": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-main-34:\\layout\\activity_nueva_tarea.xml"
+    },
+    {
+        "merged": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-merged_res-32:\\layout_item_tarea.xml.flat",
+        "source": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-main-34:\\layout\\item_tarea.xml"
+    },
+    {
+        "merged": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-merged_res-32:\\drawable_bg_login_button.xml.flat",
+        "source": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-main-34:\\drawable\\bg_login_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-merged_res-32:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-main-34:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-merged_res-32:\\layout_activity_historial.xml.flat",
+        "source": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-main-34:\\layout\\activity_historial.xml"
+    },
+    {
+        "merged": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-merged_res-32:\\drawable_bg_header.xml.flat",
+        "source": "C:\\Users\\USUARIO\\.gradle\\daemon\\8.4\\com.senati.apptareas.app-main-34:\\drawable\\bg_header.xml"
+    }
+]
