@@ -1,7 +1,9 @@
 package com.senati.apptareas.model;
 
-/**
- * Modelo que representa una tarea dentro del sistema de gestión.
+/*
+ * Esta clase es solo un "molde" para una tarea: título, descripción, estado,
+ * fechas y a quién está asignada. No tiene lógica, solo guarda datos
+ * (con sus getters/setters) para pasarlos entre las pantallas y la base de datos.
  */
 public class Tarea {
 

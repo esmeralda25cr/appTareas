@@ -1,5 +1,6 @@
 package com.senati.apptareas;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -17,10 +18,18 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-//formulario para crear o editar una tarea
+/*
+ * Formulario para crear una tarea nueva o editar una existente.
+ * Si llega un EXTRA_TAREA_ID en el intent, es modo "editar" y se cargan
+ * los datos de esa tarea; si no llega nada, es modo "crear" y el formulario
+ * empieza vacío.
+ */
 public class NuevaTareaActivity extends AppCompatActivity {
 
     public static final String EXTRA_TAREA_ID = "extra_tarea_id";
+    private static final String[] ESTADOS = {
+            Tarea.ESTADO_PENDIENTE, Tarea.ESTADO_EN_PROGRESO, Tarea.ESTADO_COMPLETADA
+    };
 
     private EditText editTitulo, editDescripcion, editFechaVencimiento, editUsuario;
     private Spinner spinnerEstado;
@@ -46,12 +55,13 @@ public class NuevaTareaActivity extends AppCompatActivity {
         editUsuario = findViewById(R.id.editUsuario);
         spinnerEstado = findViewById(R.id.spinnerEstado);
 
-        String[] estados = {Tarea.ESTADO_PENDIENTE, Tarea.ESTADO_EN_PROGRESO, Tarea.ESTADO_COMPLETADA};
+        // llenamos el spinner con los 3 estados posibles de una tarea
         ArrayAdapter<String> estadoAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, estados);
+                android.R.layout.simple_spinner_item, ESTADOS);
         estadoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerEstado.setAdapter(estadoAdapter);
 
+        // al tocar el campo de fecha, se abre el selector de calendario
         editFechaVencimiento.setOnClickListener(v -> mostrarDatePicker());
 
         TextView titulo = findViewById(R.id.txtTituloHeader);
@@ -68,6 +78,7 @@ public class NuevaTareaActivity extends AppCompatActivity {
         btnGuardar.setOnClickListener(v -> guardarTarea());
     }
 
+    // busca la tarea por id y rellena el formulario con sus datos
     private void cargarTarea(long id) {
         for (Tarea t : dbHelper.obtenerTodas()) {
             if (t.getId() == id) {
@@ -75,36 +86,36 @@ public class NuevaTareaActivity extends AppCompatActivity {
                 break;
             }
         }
-        if (tareaActual != null) {
-            editTitulo.setText(tareaActual.getTitulo());
-            editDescripcion.setText(tareaActual.getDescripcion());
-            editFechaVencimiento.setText(tareaActual.getFechaVencimiento());
-            editUsuario.setText(tareaActual.getUsuarioAsignado());
+        if (tareaActual == null) return;
 
-            String[] estados = {Tarea.ESTADO_PENDIENTE, Tarea.ESTADO_EN_PROGRESO, Tarea.ESTADO_COMPLETADA};
-            for (int i = 0; i < estados.length; i++) {
-                if (estados[i].equals(tareaActual.getEstado())) {
-                    spinnerEstado.setSelection(i);
-                    break;
-                }
+        editTitulo.setText(tareaActual.getTitulo());
+        editDescripcion.setText(tareaActual.getDescripcion());
+        editFechaVencimiento.setText(tareaActual.getFechaVencimiento());
+        editUsuario.setText(tareaActual.getUsuarioAsignado());
+
+        for (int i = 0; i < ESTADOS.length; i++) {
+            if (ESTADOS[i].equals(tareaActual.getEstado())) {
+                spinnerEstado.setSelection(i);
+                break;
             }
         }
     }
 
+    // abre un calendario y pone la fecha elegida en el campo de fecha de vencimiento
     private void mostrarDatePicker() {
         Calendar calendar = Calendar.getInstance();
-        android.app.DatePickerDialog dialog = new android.app.DatePickerDialog(this,
+        new DatePickerDialog(this,
                 (view, year, month, dayOfMonth) -> {
                     calendar.set(year, month, dayOfMonth);
                     editFechaVencimiento.setText(sdf.format(calendar.getTime()));
                 },
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.DAY_OF_MONTH));
-        dialog.show();
+                calendar.get(Calendar.DAY_OF_MONTH)
+        ).show();
     }
 
-    /** Valida el formulario y guarda la tarea en la base de datos local. */
+    // valida el formulario y guarda (inserta o actualiza) la tarea en SQLite
     private void guardarTarea() {
         String titulo = editTitulo.getText().toString().trim();
         if (titulo.isEmpty()) {

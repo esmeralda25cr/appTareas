@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:background="@drawable/bg_header"
+        android:background="@color/azul_oscuro"
         android:padding="18dp">
 
         <ImageButton
@@ -130,7 +130,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/bg_boton_verde"
+                android:background="@color/azul_oscuro"
                 android:padding="14dp"
                 android:gravity="center"
                 android:text="Guardar"

@@ -11,4 +11,10 @@
     <color name="pendiente">#D9432E</color>
     <color name="en_progreso">#C9A227</color>
     <color name="completada">#2E7D32</color>
+
+    <!-- colores nuevos solo para la pantalla de login -->
+    <color name="login_acento">#6C63FF</color>
+    <color name="login_texto">#1A66CC</color>
+    <color name="login_fondo">#B2FFFF</color>
+    <color name="login_input_bg">#F0EEFB</color>
 </resources>

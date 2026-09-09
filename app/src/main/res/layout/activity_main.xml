@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/bg_header"
+            android:background="@color/azul_oscuro"
             android:padding="20dp">
 
             <LinearLayout
@@ -160,7 +160,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
-                    android:background="@drawable/bg_boton_verde"
+                    android:background="@color/azul_oscuro"
                     android:padding="14dp"
                     android:gravity="center"
                     android:text="＋  Nueva Tarea"

@@ -14,6 +14,11 @@ import com.senati.apptareas.model.Tarea;
 
 import java.util.List;
 
+/*
+ * Adapter del RecyclerView: se encarga de "pintar" cada tarea de la lista
+ * en su tarjetita (item_tarea.xml) y de avisar cuando el usuario toca
+ * o mantiene presionada una tarea, a través de OnTareaClickListener.
+ */
 public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.ViewHolder> {
 
     public interface OnTareaClickListener {
@@ -41,6 +46,7 @@ public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.ViewHolder> 
         return new ViewHolder(v);
     }
 
+    // acá se llenan los textos y colores de cada tarjeta de tarea
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Tarea t = lista.get(position);
@@ -50,18 +56,7 @@ public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.ViewHolder> 
         holder.txtVence.setText(t.getFechaVencimiento());
         holder.txtEstado.setText(t.getEstado());
 
-        int color;
-        switch (t.getEstado() == null ? "" : t.getEstado()) {
-            case Tarea.ESTADO_EN_PROGRESO:
-                color = ContextCompat.getColor(holder.itemView.getContext(), R.color.en_progreso);
-                break;
-            case Tarea.ESTADO_COMPLETADA:
-                color = ContextCompat.getColor(holder.itemView.getContext(), R.color.completada);
-                break;
-            default:
-                color = ContextCompat.getColor(holder.itemView.getContext(), R.color.pendiente);
-                break;
-        }
+        int color = colorSegunEstado(holder, t.getEstado());
         holder.txtEstado.setTextColor(color);
         holder.viewEstadoColor.setBackgroundColor(color);
 
@@ -74,11 +69,25 @@ public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.ViewHolder> 
         });
     }
 
+    // devuelve un color distinto según el estado de la tarea (rojo/amarillo/verde)
+    private int colorSegunEstado(ViewHolder holder, String estado) {
+        int colorRes;
+        if (Tarea.ESTADO_EN_PROGRESO.equals(estado)) {
+            colorRes = R.color.en_progreso;
+        } else if (Tarea.ESTADO_COMPLETADA.equals(estado)) {
+            colorRes = R.color.completada;
+        } else {
+            colorRes = R.color.pendiente;
+        }
+        return ContextCompat.getColor(holder.itemView.getContext(), colorRes);
+    }
+
     @Override
     public int getItemCount() {
         return lista.size();
     }
 
+    // reemplaza la lista actual por una nueva y refresca la vista
     public void actualizar(List<Tarea> nuevaLista) {
         lista.clear();
         lista.addAll(nuevaLista);

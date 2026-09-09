@@ -1,74 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/fondo_gris"
+    android:background="@color/azul_oscuro"
     android:padding="24dp">
 
-    <!-- LOGO AGREGADO -->
-    <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="180dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="16dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="Logo SENATI"
-        android:scaleType="fitCenter"
-        android:src="@drawable/logo_senati" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gestion de Tareas"
-        android:textColor="@color/azul_oscuro"
-        android:textSize="22sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="32dp"
-        android:text="Iniciar sesión"
-        android:textColor="@color/texto_gris"
-        android:textSize="14sp" />
-
-    <EditText
-        android:id="@+id/edtUsuario"
+    <!-- Tarjeta blanca con el formulario, en vez del logo de SENATI ahora hay un icono simple -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Usuario"
-        android:inputType="text"
-        android:maxLines="1"
-        android:padding="12dp"
-        android:layout_marginBottom="12dp" />
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/bg_login_card"
+        android:elevation="4dp"
+        android:padding="28dp">
 
-    <EditText
-        android:id="@+id/edtPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Contraseña"
-        android:inputType="textPassword"
-        android:maxLines="1"
-        android:padding="12dp"
-        android:layout_marginBottom="8dp" />
+        <!-- icono circular que reemplaza al logo -->
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_login_avatar"
+            android:contentDescription="Icono de la app"
+            android:padding="16dp"
+            android:src="@android:drawable/ic_menu_agenda"
+            app:tint="@color/blanco" />
 
-    <TextView
-        android:id="@+id/txtError"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Usuario o contraseña incorrectos."
-        android:textSize="12sp"
-        android:visibility="gone"
-        android:layout_marginBottom="8dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gestión de Tareas"
+            android:textColor="@color/login_texto"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnIngresar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Ingresar" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="28dp"
+            android:text="Inicia sesión para continuar"
+            android:textColor="@color/texto_gris"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/edtUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_login_input"
+            android:hint="Usuario"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="14dp"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_login_input"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:padding="14dp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/txtError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Usuario o contraseña incorrectos."
+            android:textColor="@color/pendiente"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnIngresar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_login_button"
+            android:text="Ingresar"
+            android:textColor="@color/blanco"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 </LinearLayout>
