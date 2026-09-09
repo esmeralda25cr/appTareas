@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="azul_medio">#20486B</color>
+    <color name="azul_oscuro">#1B3A57</color>
+    <color name="blanco">#FFFFFF</color>
+    <color name="completada">#2E7D32</color>
+    <color name="en_progreso">#C9A227</color>
+    <color name="fondo_gris">#F2F5F7</color>
+    <color name="login_acento">#6C63FF</color>
+    <color name="login_fondo">#B2FFFF</color>
+    <color name="login_input_bg">#F0EEFB</color>
+    <color name="login_texto">#1A66CC</color>
+    <color name="pendiente">#D9432E</color>
+    <color name="texto_gris">#6B7A87</color>
+    <color name="texto_oscuro">#1B1B1B</color>
+    <color name="verde_oscuro">#2E7D32</color>
+    <color name="verde_principal">#3FA34D</color>
+    <string name="app_name">Gestión de Tareas</string>
+    <style name="Theme.AppTareas" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/azul_oscuro</item>
+        <item name="colorPrimaryDark">@color/azul_oscuro</item>
+        <item name="colorAccent">@color/azul_medio</item>
+        <item name="android:windowBackground">@color/fondo_gris</item>
+        <item name="android:statusBarColor">@color/azul_oscuro</item>
+    </style>
+</resources>
