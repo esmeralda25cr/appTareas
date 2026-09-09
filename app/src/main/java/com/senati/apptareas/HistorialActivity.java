@@ -21,7 +21,12 @@ import com.senati.apptareas.model.Tarea;
 
 import java.util.List;
 
-//muestra todas las tareas guardadas, con filtro por estado
+/*
+ * Muestra todas las tareas guardadas y permite filtrarlas por estado
+ * (Todas / Pendiente / En progreso / Completada) usando el spinner de arriba.
+ * Al mantener presionada una tarea se abre un menú para editarla, marcarla
+ * como completada o eliminarla.
+ */
 public class HistorialActivity extends AppCompatActivity {
 
     private DatabaseHelper dbHelper;
@@ -51,6 +56,7 @@ public class HistorialActivity extends AppCompatActivity {
         filtroAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerFiltro.setAdapter(filtroAdapter);
 
+        // cada vez que cambia el filtro, recargamos la lista
         spinnerFiltro.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -59,6 +65,7 @@ public class HistorialActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+                // no hace falta hacer nada aquí
             }
         });
     }
@@ -66,9 +73,10 @@ public class HistorialActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        cargarTareas();
+        cargarTareas(); // por si se creó, editó o eliminó algo en otra pantalla
     }
 
+    // trae la lista según el filtro elegido y arma el adapter del RecyclerView
     private void cargarTareas() {
         String filtro = (String) spinnerFiltro.getSelectedItem();
         List<Tarea> lista = (filtro == null || filtro.equals("Todas"))
@@ -90,18 +98,18 @@ public class HistorialActivity extends AppCompatActivity {
         });
         recycler.setAdapter(adapter);
 
+        // si no hay tareas con ese filtro, mostramos el mensaje "sin datos"
         boolean vacio = lista.isEmpty();
         txtSinDatos.setVisibility(vacio ? View.VISIBLE : View.GONE);
         recycler.setVisibility(vacio ? View.GONE : View.VISIBLE);
     }
 
+    // menú de acciones que aparece al mantener presionada una tarea
     private void mostrarOpciones(Tarea tarea) {
-        String[] opciones;
-        if (!tarea.getEstado().equals(Tarea.ESTADO_COMPLETADA)) {
-            opciones = new String[]{"Editar", "Marcar como completada", "Eliminar"};
-        } else {
-            opciones = new String[]{"Editar", "Eliminar"};
-        }
+        boolean estaCompletada = tarea.getEstado().equals(Tarea.ESTADO_COMPLETADA);
+        String[] opciones = estaCompletada
+                ? new String[]{"Editar", "Eliminar"}
+                : new String[]{"Editar", "Marcar como completada", "Eliminar"};
 
         new AlertDialog.Builder(this)
                 .setTitle(tarea.getTitulo())
@@ -123,6 +131,7 @@ public class HistorialActivity extends AppCompatActivity {
                 .show();
     }
 
+    // pide confirmación antes de borrar una tarea, para evitar borrados por error
     private void confirmarEliminar(Tarea tarea) {
         new AlertDialog.Builder(this)
                 .setTitle("Eliminar tarea")
